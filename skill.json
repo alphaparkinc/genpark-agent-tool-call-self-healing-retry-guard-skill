@@ -1,0 +1,44 @@
+{
+  "name": "genpark-agent-tool-call-self-healing-retry-guard-skill",
+  "version": "1.0.0",
+  "description": "GenPark AI Agent Skill - Deterministic AST tool-call schema auto-repair guard intercepting parameter type mismatches and eliminating expensive LLM error roundtrips.",
+  "homepage": "https://genpark.ai/mcp",
+  "author": "genpark",
+  "category": "agent-runtime",
+  "tags": [
+    "autogen",
+    "langgraph",
+    "tool-call-repair",
+    "self-healing",
+    "schema-validation"
+  ],
+  "inputs": {
+    "malformed_arguments": {
+      "type": "string",
+      "default": "{\"sku_id\": \"ROBO_99\", \"qty\": \"2\", \"discount_code\": null}"
+    },
+    "target_tool_name": {
+      "type": "string",
+      "default": "checkout_cart"
+    }
+  },
+  "outputs": {
+    "healing_id": {
+      "type": "string"
+    },
+    "self_healing_verdict": {
+      "type": "string"
+    },
+    "schema_violations_intercepted": {
+      "type": "array"
+    },
+    "latency_saved_ms": {
+      "type": "integer"
+    },
+    "guard_telemetry_url": {
+      "type": "string"
+    }
+  },
+  "entrypoint": "client.py",
+  "example": "example_usage.py"
+}
